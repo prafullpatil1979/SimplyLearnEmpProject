@@ -15,9 +15,11 @@ import posixpath
 
 import botocore
 import botocore.session
+from botocore import UNSIGNED
+from botocore.client import Config
 from aws_secretsmanager_caching import SecretCache, SecretCacheConfig
 
-client = botocore.session.get_session().create_client('secretsmanager')
+client = botocore.client('secretsmanager', config=Config(signature_version=UNSIGNED)) #botocore.session.get_session().create_client('secretsmanager')
 cache_config = SecretCacheConfig() # See below for defaults
 cache = SecretCache(config=cache_config, client=client)
 
