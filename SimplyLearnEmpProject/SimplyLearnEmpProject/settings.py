@@ -19,7 +19,7 @@ from botocore import UNSIGNED
 from botocore.client import Config
 from aws_secretsmanager_caching import SecretCache, SecretCacheConfig
 
-client = botocore.client('secretsmanager', config=Config(signature_version=UNSIGNED)) #botocore.session.get_session().create_client('secretsmanager')
+client = botocore.session.get_session().create_client('secretsmanager')
 cache_config = SecretCacheConfig() # See below for defaults
 cache = SecretCache(config=cache_config, client=client)
 
@@ -37,7 +37,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application references
 # https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-INSTALLED_APPS
@@ -96,7 +96,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': os.getenv('DATABASE_NAME'),
         'USER': os.getenv('DATABASE_USER'),
-        'PASSWORD': cache.get_secret_string('MyDBPass'), #os.getenv('DATABASE_PASSWORD'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'), #cache.get_secret_string('MyDBPass')
         'HOST': os.getenv('DATABASE_HOST'),
         'PORT': os.getenv('DATABASE_PORT')
     }
