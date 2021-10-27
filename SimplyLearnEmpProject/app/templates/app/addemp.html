@@ -1,0 +1,42 @@
+{% extends "app/layout.html" %}
+{% block content %}
+    <div>
+      <div class="booking-form">
+          <h3 style="color: bisque;padding-top: 5%;">Add Employee Details</h3>
+    <form method="POST" action="/emp">
+      {% csrf_token %}
+
+      <div class="form-group">
+        <label class="form-label">First Name:</label>
+        <div>{{form.eFname}}</div>
+        <!--<<input type="text" value="{{form.eFname}}" />-->
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Last Name:</label>
+       <div>{{form.eLname}}</div>
+         <!--<input type="text" value="{{form.eLname}}" />-->
+      </div>
+
+      <div class="form-group">
+    <label class="form-label">Company:</label> 
+    <div>{{form.eCompany}}</div>
+</div>
+<p style="color:crimson">Company not available?</p><button class="btn-warning btn-sm" onclick="location.href='/comp'">Click Here</button>
+
+      <div class="form-group">
+        <label class="form-label">Employee Email:</label>
+        <div>{{form.eEmail}}</div>
+        <!--<input type="text" value="{{form.eEmail}}" />-->
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Employee phone:</label>
+        <div>{{form.ePhone}}</div>
+        <!--<input type="text" value="{{form.ePhone}}" />-->
+      </div><br>
+
+      <button type="submit" class="btn-success">Submit</button>
+    </form>
+  </div></div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "app/layout.html" %}
+{% block content %}
+    <div>
+        <div class="booking-form">
+            <h3 style="color: bisque;padding-top: 5%;">Add Company Details</h3>
+
+            <form method="POST" action="/comp" class="forma">
+              {% csrf_token %}
+
+              <div class="form-group">
+                <label class="form-label">Company Name:</label>
+                <div>{{form.cName}}</div>
+                <!--<input type="text" name="cName" value="{{form.cName}}" />-->
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Company Email</label>
+                <div>{{form.cEmail}}</div>
+                <!--<input type="email" name="cEmail" value="{{form.cEmail}}" />-->
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Company Website:</label>
+                <div>{{form.cUrl}}</div>
+                <!--<input type="text"  name="cUrl" value="{{form.cUrl}}" />-->
+              </div>
+
+              <button type="submit" class="btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

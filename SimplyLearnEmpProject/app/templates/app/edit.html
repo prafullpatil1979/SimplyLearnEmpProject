@@ -1,0 +1,30 @@
+{% extends "app/layout.html" %}
+{% block content %}
+    <div>
+      <div class="booking-form3">
+            <h3 style="color: bisque;padding-top: 5%;">Update Company Details</h3>
+    
+            <form method="POST" action="/update/{{company.cName}}" class="forma">
+                {% csrf_token %}
+
+                <div class="form-group">
+                <label class="form-label">Company:</label>
+        
+                <input type="text" name="cName" value="{{company.cName}}" />
+                </div>
+
+                <div class="form-group">
+                <label class="form-label">Email:</label>
+        
+                <input type="email" name="cEmail" value="{{company.cEmail}}" />
+                </div>
+
+                <div class="form-group">
+                <label class="form-label">Url:</label>
+                <input type="text" name="cUrl" value="{{company.cUrl}}" />
+                </div><br>
+
+                <button type="submit" class="btn-success">Submit</button>
+            </form>
+  </div></div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "app/layout.html" %}
+{% block content %}
+    <div>
+      <div class="booking-form3">
+          <h3 style="color: bisque;padding-top: 5%;">Update Employee Details</h3>
+    
+    <form method="POST" action="/updateEmp/{{employee.eFname}}" class="forma">
+      {% csrf_token %}
+
+      <div class="form-group">
+        <label class="form-label">First Name:</label>
+        
+        <input type="text" name="eFname" value="{{employee.eFname}}" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Last Name:</label>
+        
+        <input type="text" name="eLname" value="{{employee.eLname}}" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Company:</label>
+        <input type="text" name="eCompany" value="{{employee.eCompany}}" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Employee Email:</label>
+        <input type="text" name="eEmail" value="{{employee.eEmail}}" />
+      </div><br>
+
+      <div class="form-group">
+        <label class="form-label">Employee phone:</label>
+        <input type="text" name="ePhone" value="{{employee.ePhone}}" />
+      </div><br>
+
+      <button type="submit" class="btn-success">Submit</button>
+    </form>
+  </div></div>
+{% endblock %}

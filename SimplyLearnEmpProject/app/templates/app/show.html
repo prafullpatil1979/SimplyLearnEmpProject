@@ -1,0 +1,33 @@
+{% extends "app/layout.html" %}
+{% block content %}
+    <center><div><h2 class="bg-primary text-white">List of Company</h2></div></center>
+    <table class="table">
+      <thead class="bg-danger text-white">
+        <tr>
+          <th>Company Name</th>
+          <th>Email</th>
+          <th>website</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for company in companies %}
+        <tr>
+          <td>{{company.cName}}</td>
+          <td>{{company.cEmail}}</td>
+          <td>{{company.cUrl}}</td>
+          <td>
+            <!--<a href="/delete/{{company.cName}}">Delete</a>
+            <a href="/edit/{{company.cName}}">Update</a>
+            <a href="emp">Update</a>-->
+            <button class="btn-danger btn-sm" onclick="location.href='/delete/{{company.cName}}'">Delete</button>
+            <button class="btn-success btn-sm" onclick="location.href='/edit/{{company.cName}}'">Update</button>
+            <button class="btn-primary btn-sm" onclick="location.href='/emp'">Add Employee</button>
+
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}

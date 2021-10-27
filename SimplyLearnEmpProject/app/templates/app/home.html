@@ -1,0 +1,20 @@
+{% extends "app/layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  <div> </div>
+
+  <div  style="padding-top: 5%;">
+    <button class="btn-primary btn-lg" style="padding-right: 19%;"type="button" onclick="location.href='/comp'">Add Company</button><br><br>
+    <button class="btn-primary btn-lg" style="padding-right: 17%;" onclick="location.href='/emp'">Add Employee</button><br><br>
+    <button class="btn-success btn-lg" onclick="location.href='/showemp'">Manage Employees</button><br><br>
+    <button class="btn-success btn-lg" onclick="location.href='/show'">Manage Companies</button><br>
+    </div>
+{% else %}
+    <div  class="container body-content">
+        <h5>You are not Logged in</h5>
+    </div>
+{% endif %}
+{% endblock %}
